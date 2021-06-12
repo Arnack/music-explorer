@@ -5,7 +5,8 @@ import { Input, Space } from 'antd';
 import { Layout, Breadcrumb } from 'antd';
 import { Content, Footer, Header } from "antd/es/layout/layout";
 import {SearchAPI} from "../../services/api/searchAPI";
-import {ContentLists} from "../../components/contentLists/ContentLists";
+import {ReleaseList} from "../../components/contentLists/ReleaseList";
+import {Searchbox} from "../../components/searchbox/Searchbox";
 
 
 const { Search } = Input;
@@ -24,7 +25,6 @@ export const IndexPage:FC = () => {
     const search = () => {
         SearchAPI.getReleases(searchText)
             .then((res) => {
-                console.log('res', res.data);
                 setReleases(res.data.results);
                 setPaginationInfo(res.data.pagination);
             })
@@ -42,15 +42,12 @@ export const IndexPage:FC = () => {
                 Explore Music
             </div>
             <div className="logo searchbox">
-                <Input placeholder="Search"
-                    onChange={(e) => setSearchText(e.target.value)}
-                       onPressEnter={search}
-                />
+                <Searchbox />
             </div>
         </Header>
         <Content style={{ padding: '0 50px' }}>
             <div className="site-layout-content">
-                <ContentLists releases={releases} />
+                <ReleaseList releases={releases} />
             </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
