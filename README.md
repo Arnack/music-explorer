@@ -1,5 +1,9 @@
 # Explore Music App (Based on Discogs Api)
-https://arnack.github.io/music-explorer/
+
+This Web Appication is 
+ - Responsive
+ - Paginated
+ - Deployed ad github pages https://arnack.github.io/music-explorer/
 
 ## Available Scripts
 
