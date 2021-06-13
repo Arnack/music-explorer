@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, {FC} from "react";
 import {Input} from "antd";
 import {fetchReleasesFx, searchStore, updateSearchText} from "../../store/searchStore/searchStore";
 import {useStore} from "effector-react";
 
-export const Searchbox = () => {
+export const Searchbox: FC = () => {
     const { searchText } = useStore(searchStore)
     return <>
             <Input placeholder="Search"

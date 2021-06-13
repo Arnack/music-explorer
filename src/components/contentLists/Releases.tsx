@@ -8,7 +8,7 @@ import {Loader} from "../loader/Loader";
 interface IProps {
 }
 
-export const ReleaseList: FC<IProps> = ({}) => {
+export const Releases: FC<IProps> = ({}) => {
     const releases = useStore(searchStore).results;
     const pending = useStore(fetchReleasesFx.pending);
 

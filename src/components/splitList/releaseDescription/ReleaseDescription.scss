@@ -3,12 +3,27 @@
     text-align: left;
   }
 
+  .go-back {
+    display: none;
+  }
+
+  @media screen and (max-width: 800px) {
+    .go-back {
+      display: block;
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 104px;
+      cursor: pointer;
+    }
+  }
+
+
   table {
     margin: 12px;
     td, th {
       text-align: left;
     }
-
   }
 
   iframe {

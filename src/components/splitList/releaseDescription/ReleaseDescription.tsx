@@ -1,14 +1,16 @@
 import React, {FC, useEffect, useState} from "react";
 import {IReleaseDescription} from "../../../model/release/Release";
 import {ReleaseAPI} from "../../../services/api/releaseAPI";
-import "./ReleaseDescription.scss";
+import { ArrowLeftOutlined } from '@ant-design/icons';
 import {Loader} from "../../loader/Loader";
+import "./ReleaseDescription.scss";
 
 interface IProps {
     releaseId: number | null;
+    goBackCallback: (arg: boolean) => void;
 }
 
-export const ReleaseDescription: FC<IProps> = ({releaseId}) => {
+export const ReleaseDescription: FC<IProps> = ({releaseId, goBackCallback}) => {
     const [description, setDescription] = useState<IReleaseDescription | null>(null);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -42,8 +44,10 @@ export const ReleaseDescription: FC<IProps> = ({releaseId}) => {
     return <div className={"release-description-container"}>
         <h3>{description?.title}</h3>
 
-        <div className="go-back">
-
+        <div className="go-back"
+             onClick={() => goBackCallback(false)}
+        >
+            <ArrowLeftOutlined />
         </div>
         {description?.notes && <div className="notes">
             {description?.notes}

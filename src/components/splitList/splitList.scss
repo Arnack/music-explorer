@@ -1,7 +1,6 @@
 @import "../../styles/constants";
 
 .split-list-wrapper {
-
   .list-container {
     float: left;
     height: 100%;
@@ -14,12 +13,6 @@
     }
   }
 
-  @media screen and (max-width: 800px) {
-    .list-container {
-      width: 100%;
-    }
-  }
-
   .item-details {
     float: right;
     width: calc(100% - 330px);
@@ -29,9 +22,17 @@
   }
 
   @media screen and (max-width: 800px) {
+    .list-container {
+      width: 100%;
+    }
+
     .item-details {
       width: 100%;
       border-left: none;
+    }
+
+    .mobileHidden {
+      display: none;
     }
   }
 }

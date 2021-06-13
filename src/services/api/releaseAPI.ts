@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const token = process.env.REACT_APP_TOKEN;
 
 export class ReleaseAPI {
@@ -10,9 +9,6 @@ export class ReleaseAPI {
 
     static getReleases = async (searchData: {release: string, page: number | string }) => {
         const { release, page } = searchData;
-
-        console.log('release', release);
-
         return await axios
             .get(`https://api.discogs.com/database/search?token=${token}&page=${page}&per_page=10&type=release&q=${release}`)
     }
