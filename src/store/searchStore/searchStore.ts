@@ -1,9 +1,9 @@
 import {useEvent} from "effector-react";
 import {createEffect, createEvent, createStore} from "effector";
-import {SearchAPI} from "../../services/api/searchAPI";
+import {ReleaseAPI} from "../../services/api/releaseAPI";
 
-const searchReleases = createEvent("search for releases");
-export const fetchReleasesFx = createEffect(SearchAPI.getReleases)
+export const updateSearchText = createEvent<string>("search text updated");
+export const fetchReleasesFx = createEffect(ReleaseAPI.getReleases)
 
 export const searchStore = createStore({
     pagination: {
@@ -12,9 +12,12 @@ export const searchStore = createStore({
         per_page: 5,
         items: 0
     },
+    searchText: "",
     results: []
 })
     .on(fetchReleasesFx.doneData, (state, result) => {
-        console.log('fx res', result.data);
-        return result.data
+        return {...result.data, searchText: ""}
+    })
+    .on(updateSearchText, (state, payload) => {
+        return {...state, searchText: payload}
     })

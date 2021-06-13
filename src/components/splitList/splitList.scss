@@ -1,3 +1,37 @@
+@import "../../styles/constants";
+
 .split-list-wrapper {
 
+  .list-container {
+    float: left;
+    height: 100%;
+    width: 330px;
+    max-height: calc(100vh - (#{$header-height} + 40px));
+    overflow-y: auto;
+
+    .pagination-wrapper {
+      margin-top: 8px
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .list-container {
+      width: 100%;
+    }
+  }
+
+  .item-details {
+    float: right;
+    width: calc(100% - 330px);
+    padding: 12px;
+    max-height: calc(100vh - (#{$header-height} + 40px));
+    overflow-y: auto;
+  }
+
+  @media screen and (max-width: 800px) {
+    .item-details {
+      width: 100%;
+      border-left: none;
+    }
+  }
 }

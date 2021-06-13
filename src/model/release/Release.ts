@@ -13,20 +13,20 @@ export interface IRelease {
     resource_url: string;
 }
 
-export interface IReleaseDescription extends IRelease{
+export interface IReleaseDescription extends IRelease {
     released?: string;
     artists: { name: string }[];
     artists_sort?: string;
 
     country?: string;
-    formats: string[];
-    labels: string[];
-    genres: string[];
-    styles: string[];
+    formats: { name: string }[];
+    labels: { name: string }[];
+    genres: { name: string }[];
+    styles: { name: string }[];
+    notes?: string;
     videos: {
         "uri": string,
         "title": string,
         "embed": boolean
-    }[]
-
+    }[];
 }

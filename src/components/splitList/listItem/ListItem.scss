@@ -1,0 +1,65 @@
+@import "../../../styles/constants";
+
+.list-item {
+  border-bottom: 1px solid #e2e2e2;
+  border-right: 1px solid #e2e2e2;
+  height: 82px;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:hover {
+    background: #f5f5f5;
+  }
+
+  &.selected {
+    background: #cceacc;
+  }
+
+  .thumb-container {
+    height: 80px;
+    width: 80px;
+    float: left;
+
+    .release-thumb {
+      background: gray;
+      border-radius: 50%;
+      height: 54px;
+      width: 54px;
+      margin-top: 13px;
+    }
+  }
+
+  .content-container {
+    float: right;
+    margin-top: 1px;
+    width: calc(100% - 88px);
+
+    .heading {
+      height: 23px;
+
+      .title {
+        float: left;
+        text-align: left;
+        width: calc(100% - 100px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .year {
+        float: right;
+        width: 100px;
+        color:darkgray;
+      }
+    }
+
+    .genres, .labels {
+      text-overflow: ellipsis;
+      text-align: left;
+      color: darkgray;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+  }
+}

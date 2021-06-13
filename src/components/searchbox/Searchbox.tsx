@@ -1,13 +1,14 @@
 import React, {useState} from "react";
 import {Input} from "antd";
-import {fetchReleasesFx} from "../../store/searchStore/searchStore";
+import {fetchReleasesFx, searchStore, updateSearchText} from "../../store/searchStore/searchStore";
+import {useStore} from "effector-react";
 
 export const Searchbox = () => {
-    const [searchText, setSearchText] = useState("");
+    const { searchText } = useStore(searchStore)
     return <>
             <Input placeholder="Search"
-                   onChange={(e) => setSearchText(e.target.value)}
-                   onPressEnter={() => fetchReleasesFx(searchText)}
+                   onChange={(e) => updateSearchText(e.target.value)}
+                   onPressEnter={() => fetchReleasesFx({release: searchText, page: 1})}
             />
         </>
 }
