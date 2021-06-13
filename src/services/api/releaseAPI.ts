@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const token = 'rxdPcTSCazkeakCCdoniSEbUClXWfTtlsemLLnmR'
+const token = process.env.REACT_APP_TOKEN;
 
 export class ReleaseAPI {
     static getReleaseDescription = async (releaseId: number | string) => {
